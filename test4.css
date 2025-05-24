@@ -1,0 +1,39 @@
+function login(event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const name = email.split('@')[0]; // Extract name from email for demonstration
+            Swal.fire({
+                title: 'Login Successful',
+                text: ⁠ Welcome, ${name}! ⁠,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            }).then(() => {
+                window.location.href = ⁠ index.html?name=${encodeURIComponent(name)} ⁠;
+            });
+        }
+
+        function signup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            const password = document.getElementById('signup-password').value;
+            const confirmPassword = document.getElementById('signup-confirm-password').value;
+            if (password !== confirmPassword) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Passwords do not match!',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+            Swal.fire({
+                title: 'Signup Attempted',
+                text: ⁠ Name: ${name}, Email: ${email} ⁠,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        }
+    </script>
+</body>
+</html>
